@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 function Parag(props) {
-  const {children, className, variant} = props;
+  const { children, className, variant } = props;
   let pStye = "";
   switch (variant) {
     case "lg-black":
@@ -12,6 +12,9 @@ function Parag(props) {
       break;
     case "primary":
       pStye = "text-base text-primary";
+      break;
+    case "base-black":
+      pStye = "text-base text-[#1d293f] text-medium";
       break;
     default:
       break;
