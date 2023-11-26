@@ -7,6 +7,7 @@ import {GiHamburgerMenu} from "react-icons/gi";
 
 function NavBar() {
   const [isVisible, setIsvisible] = useState(false);
+  const currentPath = window.location.pathname;
 
   const toggleSidebar = () => {
     setIsvisible(!isVisible);
@@ -23,7 +24,9 @@ function NavBar() {
             <li key={data.id}>
               <a
                 href={data.path}
-                className="hover:border-b-2 border-primary hover:transition-all duration-300"
+                className={`a-hover ${
+                  currentPath === data.path ? "active" : ""
+                }`}
               >
                 {data.name}
               </a>

@@ -23,3 +23,9 @@ body {
 .flex-center {
   @apply flex justify-center items-center;
 }
+.active {
+  @apply border-b-2 border-primary;
+}
+.a-hover {
+  @apply hover:border-b-2 border-primary hover:transition-all duration-300;
+}

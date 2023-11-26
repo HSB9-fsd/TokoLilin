@@ -22,13 +22,19 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="">New season</a>
+                <a href="" className="a-hover">
+                  New season
+                </a>
               </li>
               <li>
-                <a href="">Most searched</a>
+                <a href="" className="a-hover">
+                  Most searched
+                </a>
               </li>
               <li>
-                <a href="">Most salled</a>
+                <a href="" className="a-hover">
+                  Most salled
+                </a>
               </li>
             </ul>
             <ul className="flex flex-col gap-2">
@@ -38,13 +44,19 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="">Help</a>
+                <a href="" className="a-hover">
+                  Help
+                </a>
               </li>
               <li>
-                <a href="">Shipping</a>
+                <a href="" className="a-hover">
+                  Shipping
+                </a>
               </li>
               <li>
-                <a href="">Afflliate</a>
+                <a href="" className="a-hover">
+                  Afflliate
+                </a>
               </li>
             </ul>
             <ul className="flex flex-col gap-2">
@@ -54,13 +66,19 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="">Contact us</a>
+                <a href="" className="a-hover">
+                  Contact us
+                </a>
               </li>
               <li>
-                <a href="">Privacy Policies</a>
+                <a href="" className="a-hover">
+                  Privacy Policies
+                </a>
               </li>
               <li>
-                <a href="">term & Conditions</a>
+                <a href="" className="a-hover">
+                  term & Conditions
+                </a>
               </li>
             </ul>
           </div>
