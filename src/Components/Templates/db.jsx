@@ -15,3 +15,40 @@ export const data = [
         path: '/contact'
     },
 ]
+
+export const testi =[
+    {
+        img: '/img/pp_dummy_1.png',
+        comment: '“I love it! No more air fresheners”',
+        name: 'Luisa'
+    },
+    {
+        img: '/img/pp_dummy_2.png',
+        comment: '“Raccomended for everyone”',
+        name: 'Edoardo'
+    },
+    {
+        img: '/img/pp_dummy_3.png',
+        comment: '“Looks very natural, the smell is awesome”',
+        name: 'Mart'
+    }
+]
+
+export const positivity =[
+    {
+        title: 'Eco-sustainable:',
+        information: 'All recyclable materials, 0% CO2 emissions',
+    },
+    {
+        title: 'Hyphoallergenic:',
+        information: '100% natural, human friendly ingredients',
+    },
+    {
+        title: 'Handmade:',
+        information: 'All candles are craftly made with love.',
+    },
+    {
+        title: 'Long burning:',
+        information: 'No more waste. Created for last long.',
+    },
+]

@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 
 function Parag(props) {
-  const {children, className, variant} = props;
+  const { children, className, variant } = props;
   let pStye = "";
   switch (variant) {
     case "lg-black":
       pStye = "text-lg text-black";
+      break;
+    case "xs-black":
+      pStye = "text-xs text-black";
       break;
     case "grey":
       pStye = "text-base text-[#5E6E89]";

@@ -1,5 +1,11 @@
+import Benefit from "./Benefit";
+import Testimonial from "./Testimonial";
+
 function OrganismHome() {
-  return <>masukkan section 1 dan 2 disini</>;
+  return <>
+  <Benefit />
+  <Testimonial />
+  </>;
 }
 
 export default OrganismHome;
