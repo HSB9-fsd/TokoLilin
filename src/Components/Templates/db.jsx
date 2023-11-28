@@ -19,16 +19,19 @@ export const data = [
 export const testi =[
     {
         img: '/img/pp_dummy_1.png',
+        rate: 4,
         comment: '“I love it! No more air fresheners”',
         name: 'Luisa'
     },
     {
         img: '/img/pp_dummy_2.png',
+        rate: 5,
         comment: '“Raccomended for everyone”',
         name: 'Edoardo'
     },
     {
         img: '/img/pp_dummy_3.png',
+        rate: 4,
         comment: '“Looks very natural, the smell is awesome”',
         name: 'Mart'
     }
