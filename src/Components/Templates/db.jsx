@@ -2,7 +2,7 @@ export const data = [
   {
     id: 1,
     name: "Discovery",
-    path: "/discovery",
+    path: "/",
   },
   {
     id: 2,
