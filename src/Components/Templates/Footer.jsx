@@ -1,90 +1,98 @@
-import {Container, Parag} from "../Atom";
+import { Parag } from "../Atom";
 
 function Footer() {
   return (
-    <div className="absolute flex items-center flex-wrap w-full bg-black bottom-0 py-20">
-      <Container className="text-white">
-        <div className="w-full h-1 border-b-4 border-white"></div>
-        <div className="flex justify-between items-center flex-wrap gap-5">
-          <div className="w-72">
-            <div className="">
-              <img src="../img/footer.png" alt="" />
+    <>
+      <footer className="bg-gray-900">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+          <div className="md:flex md:justify-between">
+            <div className="mb-6 md:mb-0">
+              <a href="#" className="flex items-center">
+                <img src="../img/logoL.png" className="h-12" alt="Logo" />
+              </a>
+              <Parag variant="primary" className="mt-4 text-white sm:w-[300px]">
+                Your natural candle made for your home and for your wellness.
+              </Parag>
             </div>
-            <Parag>
-              Your natural candle made for your home and for your wellness.
-            </Parag>
-          </div>
-          <div className="flex gap-5">
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="" className="text-primary">
-                  Discover
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  New season
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Most searched
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Most salled
-                </a>
-              </li>
-            </ul>
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="" className="text-primary">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                <Parag variant="primary" className="mb-6 text-sm font-semibold">
+                  Discovery
+                </Parag>
+                <ul className="text-white text-sm font-medium">
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      New Season
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Most Searched
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:underline">
+                      Most Selled
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <Parag
+                  variant="primary"
+                  className="mb-6 text-base font-semibold"
+                >
                   About
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Help
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Shipping
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Afflliate
-                </a>
-              </li>
-            </ul>
-            <ul className="flex flex-col gap-2">
-              <li>
-                <a href="" className="text-primary">
+                </Parag>
+                <ul className="text-white text-sm font-medium">
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline ">
+                      Help
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Shipping
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Affiliate
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <Parag
+                  variant="primary"
+                  className="mb-6 text-base font-semibold"
+                >
                   Info
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Contact us
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  Privacy Policies
-                </a>
-              </li>
-              <li>
-                <a href="" className="a-hover">
-                  term & Conditions
-                </a>
-              </li>
-            </ul>
+                </Parag>
+                <ul className="text-white text-sm font-medium">
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Contact Us
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:underline">
+                      Terms &amp; Conditions
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </Container>
-    </div>
+      </footer>
+    </>
   );
 }
 
