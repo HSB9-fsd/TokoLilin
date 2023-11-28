@@ -7,6 +7,9 @@ function Parag(props) {
     case "lg-black":
       pStye = "text-lg text-black";
       break;
+    case "xs-black":
+      pStye = "text-xs text-black";
+      break;
     case "grey":
       pStye = "text-base text-[#5E6E89]";
       break;
