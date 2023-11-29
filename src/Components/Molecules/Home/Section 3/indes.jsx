@@ -5,7 +5,7 @@ import {testi} from "../../../Templates/db";
 function ThirdSection() {
   return (
     <>
-      <div className=" bg-secondary">
+      <div className="bg-secondary">
         <Container className="flex flex-col w-full h-full justify-center items-center overflow-auto">
           <div className="text-center mt-[90px]">
             <Typog variant="h1" className="text-3xl sm:text-4xl font-bold">

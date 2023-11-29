@@ -5,8 +5,8 @@ import {positivity} from "../../../Templates/db";
 function SecondSectionRevisi() {
   return (
     <>
-      <div className="bg-secondary w-full">
-        <Container className="flex flex-col-reverse md:flex-row justify-between items-center gap-10 pt-20">
+      <div className="bg-[#F7F8FA] w-full">
+        <Container className="flex flex-col-reverse md:flex-row justify-between items-center gap-10 py-32 overflow-hidden">
           <div className="flex flex-col justify-center gap-4">
             <Typog variant="h1Dark" className="text-3xl sm:text-4xl">
               Clean and fragrant soy wax
@@ -33,19 +33,15 @@ function SecondSectionRevisi() {
             </ul>
           </div>
           <div
-            className="w-[400px] relative bg-no-repeat bg-white bg-cover shadow-lg"
+            className="w-full sm:w-[450px] relative bg-no-repeat bg-white bg-cover shadow-lg"
             style={{backgroundImage: "url(../img/leaves.png)"}}
           >
             <img
-              src="/img/Candle_Mockup.png"
-              alt="candle"
-              className="absolute"
-            />
-            <img
               src="/img/Candle_Mockup_1_B (2) copy 2 14.02 1.png"
               alt="candle-1"
-              className=""
+              className="absolute -right-14 top-4"
             />
+            <img src="/img/Candle_Mockup.png" alt="candle" className="" />
           </div>
         </Container>
       </div>
