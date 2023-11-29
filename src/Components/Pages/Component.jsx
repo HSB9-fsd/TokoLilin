@@ -1,4 +1,4 @@
-import { Button, Card, Container, Parag, Typog } from "../Atom";
+import {Button, Card, Container, Parag, Typog} from "../Atom";
 
 function ComponentExample() {
   return (

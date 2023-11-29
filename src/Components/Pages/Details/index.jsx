@@ -1,12 +1,8 @@
 import Template from "../../Templates";
-// import OrganismHome from "../../Organism/Home";
-// import ComponentExample from "../Component";
 
 function index() {
   return (
     <Template>
-      {/* <OrganismHome />
-      <ComponentExample /> */}
       <Main />
     </Template>
   );

@@ -7,7 +7,7 @@ function Template({children}) {
     <>
       <NavBar />
       <main>{children}</main>
-      <footer className="relative md:mt-96 mt-[500px]">
+      <footer className="relative">
         <Footer />
       </footer>
     </>

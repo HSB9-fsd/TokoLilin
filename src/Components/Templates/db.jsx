@@ -55,3 +55,54 @@ export const positivity = [
     information: "No more waste. Created for last long.",
   },
 ];
+
+export const products = [
+  {
+    id: 1,
+    img: "../img/image 1.png",
+    name: "Spiced Mint",
+    price: "20.000",
+  },
+  {
+    id: 2,
+    img: "../img/image 1-1.png",
+    name: "Sweet Strawbery",
+    price: "20.000",
+  },
+  {
+    id: 3,
+    img: "../img/image 1-2.png",
+    name: "Cool Blueberries",
+    price: "20.000",
+  },
+  {
+    id: 4,
+    img: "../img/image 1-3.png",
+    name: "Juicy Lemon",
+    price: "20.000",
+  },
+  {
+    id: 5,
+    img: "../img/image 1-4.png",
+    name: "Product Name",
+    price: "20.000",
+  },
+  {
+    id: 6,
+    img: "../img/image 1-5.png",
+    name: "Fragrant Cinnamon",
+    price: "20.000",
+  },
+  {
+    id: 7,
+    img: "../img/image 1-6.png",
+    name: "Summer Cherries",
+    price: "20.000",
+  },
+  {
+    id: 8,
+    img: "../img/image 1-7.png",
+    name: "Clean Lavender",
+    price: "20.000",
+  },
+];

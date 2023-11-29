@@ -1,9 +1,9 @@
-import { Parag } from "../Atom";
+import {Parag} from "../Atom";
 
 function Footer() {
   return (
     <>
-      <footer className="bg-gray-900">
+      <div className="bg-gray-900">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
           <div className="md:flex md:justify-between">
@@ -91,7 +91,7 @@ function Footer() {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </>
   );
 }
