@@ -1,11 +1,12 @@
-import {useState} from "react";
-import {data} from "./db";
-import {Container} from "../Atom";
-import {FaRegUser} from "react-icons/fa6";
-import {SlBasket} from "react-icons/sl";
-import {GiHamburgerMenu} from "react-icons/gi";
+import { useState } from "react";
+import { data } from "./db";
+import { Container } from "../Atom";
+import { FaRegUser } from "react-icons/fa6";
+import { SlBasket } from "react-icons/sl";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function NavBar() {
+  // const {zindex="", position="none"} = props;
   const [isVisible, setIsvisible] = useState(false);
   const currentPath = window.location.pathname;
 
@@ -14,7 +15,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="h-16 fixed z-20 w-full bg-white/30 backdrop-blur-lg">
+    <nav className="h-16 sticky z-20 w-full bg-white/30 backdrop-blur-lg top-0">
       <Container className="h-full flex justify-between relative">
         <div className="flex sm:hidden text-3xl">
           <button onClick={toggleSidebar}>
