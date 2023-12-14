@@ -35,30 +35,12 @@ function SecondSection() {
               </Button>
             </ul>
           </div>
-          {/* <div className="w-[540px] h-[377px] bg-white sm:shrink-0 my-4 sm:my-[209px] drop-shadow-md"> */}
           <div className="max-w-2xl bg-white">
-            {/* <div className="w-full h-full relative"> */}
-            {/* <img
-                src="/img/leaves.png"
-                alt="leaves"
-                className="z-10 right-0 absolute"
-              />
-              <img
-                src="/img/Candle_Mockup.png"
-                alt="candle"
-                className="z-10 left-0 top-0 absolute"
-              />
-              <img
-                src="/img/Candle_Mockup_1_B (2) copy 2 14.02 1.png"
-                alt="candle-1"
-                className="z-10 bottom-0 right-0 absolute"
-              /> */}
             <img
               src="/img/Candle_Mockup_1_B (2) copy 2 14.02 1.png"
               alt="candle-1"
               className=""
             />
-            {/* </div> */}
           </div>
         </div>
       </Container>

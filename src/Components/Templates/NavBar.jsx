@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { data } from "./db";
-import { Container } from "../Atom";
-import { FaRegUser } from "react-icons/fa6";
-import { SlBasket } from "react-icons/sl";
-import { GiHamburgerMenu } from "react-icons/gi";
+import {useState} from "react";
+import {data} from "./db";
+import {Container} from "../Atom";
+import {FaRegUser} from "react-icons/fa6";
+import {SlBasket} from "react-icons/sl";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 function NavBar() {
-  // const {zindex="", position="none"} = props;
   const [isVisible, setIsvisible] = useState(false);
   const currentPath = window.location.pathname;
 
@@ -44,9 +43,12 @@ function NavBar() {
           <button className="hover:bg-primary p-2 hover:text-white rounded-md">
             <FaRegUser />
           </button>
-          <button className="hover:bg-primary p-2 hover:text-white rounded-md">
+          <a
+            href="/cart"
+            className="hover:bg-primary p-2 hover:text-white rounded-md"
+          >
             <SlBasket />
-          </button>
+          </a>
         </div>
       </Container>
     </nav>

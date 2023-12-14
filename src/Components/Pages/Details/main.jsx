@@ -1,21 +1,9 @@
 import {Button} from "../../Atom";
-import Template from "../../Templates";
-// import { Link } from "react-router-dom";
-
-// import { Card, Parag, Typog, Container } from "../../Atom";
+import {SlBasket} from "react-icons/sl";
 import {products} from "../../Templates/db";
 import {useParams} from "react-router-dom";
-function index() {
-  return (
-    <>
-      <Template>
-        <Main />
-      </Template>
-    </>
-  );
-}
 
-function Main() {
+const Main = () => {
   const {id} = useParams();
   const product = products.find((item) => item.id === parseInt(id));
 
@@ -51,14 +39,14 @@ function Main() {
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                   <div className="flex flex-col items-stretch w-1/5 max-md:w-full max-md:ml-0">
                     <div className="flex flex-col items-stretch mt-1 max-md:mt-10">
-                      <div className="justify-center text-green-400 text-2xl font-semibold leading-[58px] tracking-tighter">
+                      <div className="font-bold text-primary text-xl">
                         IDR. {product.price.toFixed(3)}
                       </div>
                       <div className="justify-center items-stretch bg-white flex flex-col mt-10 pt-1.5 max-md:mt-10">
                         <div className="text-neutral-800 text-center text-lg leading-7 tracking-tighter">
                           Quantity
                         </div>
-                        <div className="text-neutral-400 text-center text-lg tracking-tighter border border-[color:var(--green,#56B280)] justify-center items-stretch mt-2 px-4 py-2.5 border-solid">
+                        <div className="py-3 border-2 flex justify-evenly border-primary">
                           <Button>
                             <span className="text-green-400">+</span>
                           </Button>
@@ -96,7 +84,7 @@ function Main() {
                               />
                             </div>
                           </div>
-                          <div className="text-green-400 text-sm font-light leading-4 mt-3">
+                          <div>
                             <span className="text-zinc-500">
                               Subscribe now and get the 10% of discount on every
                               recurring order. The discount will be applied at
@@ -108,15 +96,13 @@ function Main() {
                         </div>
                       </div>
                     </div>
-                    <div className="items-stretch rounded bg-green-400 flex justify-between gap-4 mt-16 px-20 py-2.5 max-md:mt-10 max-md:px-5">
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/3f7f8ba5b3ea1e62c2a88e57d94e0bb47f3701efdff81db66b03b63dda094add?apiKey=be3dbe45865241b7a20a89a9720847f6&"
-                        className="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
-                      />
-                      <div className="text-white text-center text-xl my-auto">
-                        + Add to cart
-                      </div>
+                    <div className="mt-5">
+                      <Button
+                        variant="primary"
+                        className="py-2 px-10 flex items-center gap-3"
+                      >
+                        <SlBasket /> + Add to cart
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -128,6 +114,6 @@ function Main() {
       </div>
     </>
   );
-}
+};
 
-export default index;
+export default Main;

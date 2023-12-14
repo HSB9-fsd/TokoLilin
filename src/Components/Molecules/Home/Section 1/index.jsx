@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import {Button, Card, Parag, Typog, Container} from "../../../Atom";
 import {products} from "../../../Templates/db";
 
@@ -8,11 +9,6 @@ function FirstSection() {
         className="bg-cover bg-no-repeat"
         style={{backgroundImage: "url(../img/bg-image.png)"}}
       >
-        {/* <img
-          className="w-full h-[100vh] bg-cover absolute -z-10"
-          src="../img/bg-image.png"
-          alt="hero"
-        /> */}
         <Container className="h-[800px] flex-center">
           <div className="w-[730px] bg-white/70 py-16 flex flex-col items-center text-center backdrop-blur-lg rounded-lg">
             <p className="text-5xl mb-2">🌱</p>
@@ -37,90 +33,12 @@ function FirstSection() {
             Order it for you or for your beloved ones
           </Parag>
         </div>
-
         <div className="grid-4-1 gap-2">
-          {/* <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center overflow-hidden">
-              <img src="../img/image 1.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Spiced Mint
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-1.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Sweet Strawbery
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-2.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Cool Blueberries
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-3.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Juicy Lemon
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-4.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Product Name
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-5.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Fragrant Cinnamon
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card>
-          <Card variant="card-lg" className="h-[250px]">
-            <div className="flex justify-center">
-              <img src="../img/image 1-6.png" alt="" />
-            </div>
-            <Parag variant="base-black" className="text-center">
-              Summer Cherries
-            </Parag>
-            <Parag variant="primary" className="text-center">
-              Rp. 20.000
-            </Parag>
-          </Card> */}
           {products.map((product) => (
-            <Card
+            <a
               key={product.id}
-              variant="card-lg"
-              className="h-[250px] hover:scale-105 hover:transition ease-in-out duration-300"
+              href={`/details/${product.id}`}
+              className="max-w-lg shadow-lg h-[250px] hover:scale-105 hover:transition ease-in-out duration-300"
             >
               <div className="flex justify-center">
                 <img src={product.img} alt="" />
@@ -129,9 +47,9 @@ function FirstSection() {
                 {product.name}
               </Parag>
               <Parag variant="primary" className="text-center">
-                Rp. {product.price}
+                Rp. {product.price.toFixed(3)}
               </Parag>
-            </Card>
+            </a>
           ))}
         </div>
       </Container>
