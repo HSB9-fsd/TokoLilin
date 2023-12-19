@@ -40,9 +40,9 @@ function NavBar() {
         </ul>
 
         <div className="flex gap-4 justify-end items-center text-2xl">
-          <button className="hover:bg-primary p-2 hover:text-white rounded-md">
+          <a href="/login" className="hover:bg-primary p-2 hover:text-white rounded-md">
             <FaRegUser />
-          </button>
+          </a>
           <a
             href="/cart"
             className="hover:bg-primary p-2 hover:text-white rounded-md"
