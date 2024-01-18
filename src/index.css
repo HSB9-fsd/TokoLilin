@@ -11,6 +11,9 @@ body {
 .btn-primary {
   @apply bg-primary text-white rounded-lg hover:bg-primaryDark hover:transition-all duration-300;
 }
+.btn-warning {
+  @apply bg-yellow-500 text-white rounded-lg hover:bg-yellow-700 hover:transition-all duration-300;
+}
 .ul-responsive {
   @apply sm:flex flex-col sm:flex-row shadow-lg sm:shadow-none bg-white sm:bg-transparent p-10 sm:p-0 justify-between items-center gap-4 sm:static absolute left-0 top-20;
 }

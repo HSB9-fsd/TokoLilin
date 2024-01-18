@@ -1,8 +1,14 @@
-import {Link} from "react-router-dom";
-import {Button, Card, Parag, Typog, Container} from "../../../Atom";
-import {products} from "../../../Templates/db";
+import {Button, Parag, Typog, Container} from "../../../Atom";
+import {useProduct} from "../../../../Hooks/useProduct";
 
 function FirstSection() {
+  const products = useProduct();
+
+  const hanldeToken = () => {
+    const token = "asdkjasdhkag3289JHAKJS";
+    localStorage.setItem("token", token);
+  };
+
   return (
     <>
       <div
@@ -18,7 +24,11 @@ function FirstSection() {
               your pleasure moments
             </p>
             <div>
-              <Button variant="primary" className="py-2 px-11 font-bold">
+              <Button
+                onClick={hanldeToken}
+                variant="primary"
+                className="py-2 px-11 font-bold"
+              >
                 Discover our collection
               </Button>
             </div>

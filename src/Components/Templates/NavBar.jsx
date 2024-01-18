@@ -4,9 +4,11 @@ import {Container} from "../Atom";
 import {FaRegUser} from "react-icons/fa6";
 import {SlBasket} from "react-icons/sl";
 import {GiHamburgerMenu} from "react-icons/gi";
+import {Link} from "react-router-dom";
 
 function NavBar() {
   const [isVisible, setIsvisible] = useState(false);
+
   const currentPath = window.location.pathname;
 
   const toggleSidebar = () => {
@@ -40,9 +42,11 @@ function NavBar() {
         </ul>
 
         <div className="flex gap-4 justify-end items-center text-2xl">
-          <button className="hover:bg-primary p-2 hover:text-white rounded-md">
-            <FaRegUser />
-          </button>
+          <Link to="/profile">
+            <button className="hover:bg-primary p-2 hover:text-white rounded-md">
+              <FaRegUser />
+            </button>
+          </Link>
           <a
             href="/cart"
             className="hover:bg-primary p-2 hover:text-white rounded-md"

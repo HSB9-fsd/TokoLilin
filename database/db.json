@@ -1,0 +1,224 @@
+{
+  "user": [
+    {
+      "img": "",
+      "email": "contoh@gmail.com",
+      "first_name": "Agung",
+      "last_name": "Doe",
+      "phone": "085751633160",
+      "id": 1
+    }
+  ],
+  "user_details": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "token": "aslkdjashldkajs398472398JHSGD"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "img": "../img/image 1.png",
+      "name": "Spiced Mint",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 2,
+      "img": "../img/image 1-1.png",
+      "name": "Sweet Strawbery",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 3,
+      "img": "../img/image 1-2.png",
+      "name": "Cool Blueberries",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 4,
+      "img": "../img/image 1-3.png",
+      "name": "Juicy Lemon",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 5,
+      "img": "../img/image 1-4.png",
+      "name": "Product Name",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 6,
+      "img": "../img/image 1-5.png",
+      "name": "Fragrant Cinnamon",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 7,
+      "img": "../img/image 1-6.png",
+      "name": "Summer Cherries",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    },
+    {
+      "id": 8,
+      "img": "../img/image 1-7.png",
+      "name": "Clean Lavender",
+      "price": 20,
+      "quantity": 1,
+      "desc": "All hand-made with natural soy wax, Candleaf is made for your pleasure moments."
+    }
+  ],
+  "address": [
+    {
+      "user_id": 5,
+      "city": "Barabai",
+      "postal_code": "02394",
+      "province": "Sumatra Selatan",
+      "country": "Indoneisa",
+      "address": "SAKjdgs",
+      "id": 1
+    },
+    {
+      "user_id": 3,
+      "city": "Barabai",
+      "postal_code": "02394",
+      "province": "Sumatra Selatan",
+      "country": "Indoneisa",
+      "address": "SAKjdgs",
+      "id": 2
+    },
+    {
+      "user_id": 1,
+      "city": "Barabai",
+      "postal_code": "02394",
+      "province": "Sumatra Selatan",
+      "country": "Indoneisa",
+      "address": "Barabai",
+      "id": 3
+    }
+  ],
+  "basket": [
+    {
+      "productId": 5,
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "productId": 8,
+      "quantity": 1,
+      "id": 6
+    },
+    {
+      "productId": 1,
+      "quantity": 1,
+      "id": 7
+    },
+    {
+      "productId": 8,
+      "quantity": 1,
+      "id": 8
+    }
+  ],
+  "checkout_items": [],
+  "shipping": [
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "sdas",
+      "id": 1
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "sads",
+      "id": 2
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "uhg",
+      "id": 3
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 4
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 5
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 8
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 9
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 10
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 11
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "",
+      "id": 12
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "juhiuy",
+      "id": 13
+    },
+    {
+      "user_id": 1,
+      "address_id": 3,
+      "payment": "BRI",
+      "id": 14
+    }
+  ],
+  "purchase": []
+}

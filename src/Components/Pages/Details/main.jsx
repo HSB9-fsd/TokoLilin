@@ -1,26 +1,42 @@
+import {useDispatch, useSelector} from "react-redux";
 import {Button} from "../../Atom";
 import {SlBasket} from "react-icons/sl";
-import {products} from "../../Templates/db";
 import {useParams} from "react-router-dom";
+import {useEffect} from "react";
+import {getProductAction} from "../../../store/action/product.action";
+import {postCartAction} from "../../../store/action/cart.action";
 
 const Main = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.data);
   const {id} = useParams();
-  const product = products.find((item) => item.id === parseInt(id));
+  const selectItem = products.find((data) => data.id === parseInt(id));
+
+  useEffect(() => {
+    dispatch(getProductAction());
+  }, [dispatch]);
+
+  if (!selectItem) {
+    return console.log("");
+  }
+
+  const hanldeAddCart = (id) => {
+    dispatch(postCartAction(id));
+  };
 
   return (
     <>
       <div className="min-h-full w-min-screen mt-10 mb-20">
-        {" "}
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
           <div className="flex flex-col items-stretch w-[49%] max-md:w-full max-md:ml-0">
             <div className="flex grow flex-col items-stretch mt-3.5 px-5 max-md:max-w-full max-md:mt-10">
               <img
-                src={product.img}
+                src={selectItem.img}
                 className="aspect-[1.33] object-contain object-center w-full overflow-hidden max-md:max-w-full"
               />
               <div className="text-green-400 text-center text-xl font-medium leading-7 tracking-tighter self-center mt-2 max-md:max-w-full">
                 <span className="font-medium text-neutral-800">
-                  {product.desc}
+                  {selectItem.desc}
                 </span>
                 <span className="font-medium text-zinc-800">
                   <br />
@@ -33,14 +49,14 @@ const Main = () => {
           <div className="flex flex-col items-stretch w-[51%] ml-5 max-md:w-full max-md:ml-0">
             <div className="flex flex-col items-stretch px-5 max-md:max-w-full max-md:mt-9">
               <div className="justify-center text-neutral-800 text-2xl font-medium leading-[58px] tracking-tighter max-md:max-w-full">
-                {product.name}
+                {selectItem.name}
               </div>
               <div className="mt-7 max-md:max-w-full">
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                   <div className="flex flex-col items-stretch w-1/5 max-md:w-full max-md:ml-0">
                     <div className="flex flex-col items-stretch mt-1 max-md:mt-10">
                       <div className="font-bold text-primary text-xl">
-                        IDR. {product.price.toFixed(3)}
+                        IDR. {selectItem.price.toFixed(3)}
                       </div>
                       <div className="justify-center items-stretch bg-white flex flex-col mt-10 pt-1.5 max-md:mt-10">
                         <div className="text-neutral-800 text-center text-lg leading-7 tracking-tighter">
@@ -98,6 +114,7 @@ const Main = () => {
                     </div>
                     <div className="mt-5">
                       <Button
+                        onClick={() => hanldeAddCart(selectItem.id)}
                         variant="primary"
                         className="py-2 px-10 flex items-center gap-3"
                       >
