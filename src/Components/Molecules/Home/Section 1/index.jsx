@@ -5,7 +5,8 @@ function FirstSection() {
   const products = useProduct();
 
   const hanldeToken = () => {
-    const token = "asdkjasdhkag3289JHAKJS";
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkMmM2NWZkLWIxNzEtNDBhMC04YWNkLWIxNWJiYzVjNjE4OCIsImlhdCI6MTcwNTg0MTAyM30.VlXz7c4OO3WF0kXnV1KO6gT7oAIc_cdbEX_iBR84LfA";
     localStorage.setItem("token", token);
   };
 
@@ -51,10 +52,10 @@ function FirstSection() {
               className="max-w-lg shadow-lg h-[250px] hover:scale-105 hover:transition ease-in-out duration-300"
             >
               <div className="flex justify-center">
-                <img src={product.img} alt="" />
+                <img src="https://fakeimg.pl/150x150" alt={product.title} />
               </div>
               <Parag variant="base-black" className="text-center">
-                {product.name}
+                {product.title}
               </Parag>
               <Parag variant="primary" className="text-center">
                 Rp. {product.price.toFixed(3)}

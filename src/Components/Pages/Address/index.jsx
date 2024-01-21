@@ -2,23 +2,36 @@ import {useDispatch} from "react-redux";
 import {Button, Container, Typog} from "../../Atom";
 import Template from "../../Templates";
 import {Input} from "antd";
-import {Link} from "react-router-dom";
-import {useState} from "react";
-import {postAddressAction} from "../../../store/action/address.action";
+import {Link, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {updateAddressAction} from "../../../store/action/address.action";
+import useAddress from "../../../Hooks/useAddress";
+import useToken from "../../../Hooks/useToken";
 
 function UpdateAddressPage() {
+  const {id} = useParams();
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-  const userId = 1;
+  const addressData = useAddress();
+  const token = useToken();
 
   const [formData, setFormData] = useState({
-    user_id: userId,
+    address: "",
     city: "",
     postal_code: "",
     province: "",
     country: "",
-    address: "",
   });
+
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      address: addressData?.address || "",
+      city: addressData?.city || "",
+      postal_code: addressData?.postal_code || "",
+      province: addressData?.province || "",
+      country: addressData?.country || "",
+    }));
+  }, [addressData]);
 
   const handleInputChange = (e) => {
     const {name, value} = e.target;
@@ -27,7 +40,7 @@ function UpdateAddressPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(postAddressAction({formData, token}));
+    dispatch(updateAddressAction({formData, token, id}));
   };
 
   return (
@@ -130,7 +143,7 @@ function UpdateAddressPage() {
             </Button>
             <Link to="/profile">
               <Button variant="primary" className="py-2 px-5">
-                Cancel
+                Back
               </Button>
             </Link>
           </div>

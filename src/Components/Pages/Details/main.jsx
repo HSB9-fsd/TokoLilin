@@ -1,27 +1,40 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Button} from "../../Atom";
 import {SlBasket} from "react-icons/sl";
 import {useParams} from "react-router-dom";
-import {useEffect} from "react";
-import {getProductAction} from "../../../store/action/product.action";
 import {postCartAction} from "../../../store/action/cart.action";
+import {useProduct} from "../../../Hooks/useProduct";
+import useToken from "../../../Hooks/useToken";
+import useAuth from "../../../Hooks/useAuth";
+import {useState} from "react";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.data);
+  const products = useProduct();
+  const token = useToken();
+  const user = useAuth();
   const {id} = useParams();
-  const selectItem = products.find((data) => data.id === parseInt(id));
-
-  useEffect(() => {
-    dispatch(getProductAction());
-  }, [dispatch]);
+  const userId = user.id;
+  const selectItem = products.find((data) => data.id === id);
+  const [quantity, setQuantity] = useState(1);
 
   if (!selectItem) {
-    return console.log("");
+    return console.log(null);
   }
 
   const hanldeAddCart = (id) => {
-    dispatch(postCartAction(id));
+    if (token) {
+      dispatch(postCartAction({id, token, userId, quantity}));
+    }
+  };
+
+  const hanldeAddQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const hanldeMinsQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   return (
@@ -31,7 +44,8 @@ const Main = () => {
           <div className="flex flex-col items-stretch w-[49%] max-md:w-full max-md:ml-0">
             <div className="flex grow flex-col items-stretch mt-3.5 px-5 max-md:max-w-full max-md:mt-10">
               <img
-                src={selectItem.img}
+                // src={selectItem.img}
+                src="https://fakeimg.pl/300x300"
                 className="aspect-[1.33] object-contain object-center w-full overflow-hidden max-md:max-w-full"
               />
               <div className="text-green-400 text-center text-xl font-medium leading-7 tracking-tighter self-center mt-2 max-md:max-w-full">
@@ -49,25 +63,25 @@ const Main = () => {
           <div className="flex flex-col items-stretch w-[51%] ml-5 max-md:w-full max-md:ml-0">
             <div className="flex flex-col items-stretch px-5 max-md:max-w-full max-md:mt-9">
               <div className="justify-center text-neutral-800 text-2xl font-medium leading-[58px] tracking-tighter max-md:max-w-full">
-                {selectItem.name}
+                {selectItem.title}
               </div>
               <div className="mt-7 max-md:max-w-full">
                 <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
                   <div className="flex flex-col items-stretch w-1/5 max-md:w-full max-md:ml-0">
                     <div className="flex flex-col items-stretch mt-1 max-md:mt-10">
                       <div className="font-bold text-primary text-xl">
-                        IDR. {selectItem.price.toFixed(3)}
+                        IDR. {selectItem.price}
                       </div>
                       <div className="justify-center items-stretch bg-white flex flex-col mt-10 pt-1.5 max-md:mt-10">
                         <div className="text-neutral-800 text-center text-lg leading-7 tracking-tighter">
                           Quantity
                         </div>
                         <div className="py-3 border-2 flex justify-evenly border-primary">
-                          <Button>
+                          <Button onClick={hanldeAddQuantity}>
                             <span className="text-green-400">+</span>
                           </Button>
-                          <span className="text-zinc-800 mx-3">1</span>
-                          <Button>
+                          <span className="text-zinc-800 mx-3">{quantity}</span>
+                          <Button onClick={hanldeMinsQuantity}>
                             <span className="text-neutral-400">-</span>
                           </Button>
                         </div>
@@ -116,7 +130,9 @@ const Main = () => {
                       <Button
                         onClick={() => hanldeAddCart(selectItem.id)}
                         variant="primary"
-                        className="py-2 px-10 flex items-center gap-3"
+                        className={`py-2 px-10 flex items-center gap-3 ${
+                          !token ? "cursor-not-allowed" : ""
+                        }`}
                       >
                         <SlBasket /> + Add to cart
                       </Button>

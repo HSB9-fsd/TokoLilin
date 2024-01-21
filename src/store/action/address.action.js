@@ -1,15 +1,18 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAddressAction = createAsyncThunk(
+export const getAddressByUserIdAction = createAsyncThunk(
   "getAddress/address",
-  async (token) => {
+  async ({token, userId}) => {
     try {
-      const response = await axios.get("http://localhost:3000/address", {
-        headers: {
-          Authorization: token,
-        },
-      });
+      const response = await axios.get(
+        `http://localhost:8080/address/${userId}`,
+        {
+          headers: {
+            access_token: token,
+          },
+        }
+      );
 
       if (!token) {
         return console.log("gagal");
@@ -33,7 +36,7 @@ export const postAddressAction = createAsyncThunk(
         formData,
         {
           headers: {
-            Authorization: token,
+            access_token: token,
           },
         }
       );
@@ -55,14 +58,14 @@ export const postAddressAction = createAsyncThunk(
 
 export const updateAddressAction = createAsyncThunk(
   "updateUser/user",
-  async ({formData, token}) => {
+  async ({formData, token, id}) => {
     try {
-      const response = await axios.put(
-        `http://localhost:3000/address`,
+      const response = await axios.patch(
+        `http://localhost:8080/address/update/${id}`,
         formData,
         {
           headers: {
-            Authorization: token,
+            access_token: token,
           },
         }
       );

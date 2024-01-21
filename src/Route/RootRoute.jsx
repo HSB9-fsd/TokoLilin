@@ -15,7 +15,7 @@ function RootRoute() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profileUpdate/:id" element={<UpdateProfilePage />} />
-        <Route path="/address" element={<UpdateAddressPage />} />
+        <Route path="/address/:id" element={<UpdateAddressPage />} />
       </Routes>
     </BrowserRouter>
   );

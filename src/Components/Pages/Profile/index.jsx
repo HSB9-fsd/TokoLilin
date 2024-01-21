@@ -1,27 +1,13 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {Container, Typog} from "../../Atom";
+import {Container} from "../../Atom";
 import Template from "../../Templates";
-import {getUserAction} from "../../../store/action/user.action";
-import {getAddressAction} from "../../../store/action/address.action";
-import Empty from "../../Molecules/Profile/Address/empty";
 import AddressForm from "../../Molecules/Profile/Address/address.form";
 import BiodataProfile from "../../Molecules/Profile/Biodata";
 import {Collapse} from "antd";
 import HistoryProfile from "../../Molecules/Profile/History";
+import useAddress from "../../../Hooks/useAddress";
 
 function ProfilePage() {
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.data);
-  const address = useSelector((state) => state.address.data);
-  const token = localStorage.getItem("token");
-  const user_ids = users.map((user) => user.id);
-  const newAddress = address.find((data) => user_ids.includes(data.user_id));
-
-  useEffect(() => {
-    dispatch(getUserAction(token));
-    dispatch(getAddressAction(token));
-  }, [dispatch, token]);
+  const address = useAddress();
 
   const items = [
     {
@@ -32,7 +18,7 @@ function ProfilePage() {
     {
       key: "2",
       label: "Address",
-      children: <>{!newAddress ? <Empty /> : <AddressForm />}</>,
+      children: <AddressForm address={address} />,
     },
     {
       key: "3",

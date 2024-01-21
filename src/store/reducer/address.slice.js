@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getAddressAction} from "../action/address.action";
+import {getAddressByUserIdAction} from "../action/address.action";
 
 const addressSlice = createSlice({
   name: "products",
@@ -11,14 +11,14 @@ const addressSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getAddressAction.pending, (state) => {
+      .addCase(getAddressByUserIdAction.pending, (state) => {
         state.status = "pending";
       })
-      .addCase(getAddressAction.fulfilled, (state, action) => {
+      .addCase(getAddressByUserIdAction.fulfilled, (state, action) => {
         state.status = "success";
         state.data = action.payload;
       })
-      .addCase(getAddressAction.rejected, (state, action) => {
+      .addCase(getAddressByUserIdAction.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });

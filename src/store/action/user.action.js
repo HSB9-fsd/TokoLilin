@@ -3,9 +3,9 @@ import axios from "axios";
 
 export const getUserAction = createAsyncThunk("getUser/user", async (token) => {
   try {
-    const response = await axios.get("http://localhost:3000/user", {
+    const response = await axios.get("http://localhost:8080/user/", {
       headers: {
-        Authorization: token,
+        access_token: token,
       },
     });
 
@@ -20,6 +20,29 @@ export const getUserAction = createAsyncThunk("getUser/user", async (token) => {
     new Error(error.message);
   }
 });
+
+export const getUserByIdAction = createAsyncThunk(
+  "getUser/user",
+  async ({userId, token}) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/user/${userId}`, {
+        headers: {
+          access_token: token,
+        },
+      });
+
+      if (!token) {
+        return console.log("gagal");
+      }
+
+      const data = response.data;
+
+      return data;
+    } catch (error) {
+      new Error(error.message);
+    }
+  }
+);
 
 export const updateUserAction = createAsyncThunk(
   "updateUser/user",

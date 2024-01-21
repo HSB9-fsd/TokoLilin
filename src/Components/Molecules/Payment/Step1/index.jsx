@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import useAuth from "../../../../Hooks/useAuth";
 import {Card} from "../../../Atom";
-import {Radio, Input, Select} from "antd";
+import {Input} from "antd";
 
-function Step1({currentUser, newAddress}) {
+function Step1({address}) {
+  const user = useAuth();
+
   return (
     <>
       <Card>
@@ -10,7 +13,7 @@ function Step1({currentUser, newAddress}) {
           <label>Full Name</label>
           <Input
             type="text"
-            value={`${currentUser.first_name} ${currentUser.last_name}`}
+            value={`${user.first_name} ${user.last_name}`}
             placeholder="Your name here"
             className="my-2"
             readOnly
@@ -18,27 +21,17 @@ function Step1({currentUser, newAddress}) {
         </div>
         <div className="mt-2">
           <label>Email</label>
-          <Input
-            type="email"
-            value={currentUser.email}
-            className="my-2"
-            readOnly
-          />
+          <Input type="email" value={user.email} className="my-2" readOnly />
         </div>
         <div className="mt-2">
           <label>City</label>
-          <Input
-            type="text"
-            value={newAddress.city}
-            className="my-2"
-            readOnly
-          />
+          <Input type="text" value={address.city} className="my-2" readOnly />
         </div>
         <div className="mt-2">
           <label>Postal Code</label>
           <Input
             type="text"
-            value={newAddress.postal_code}
+            value={address.postal_code}
             className="my-2"
             readOnly
           />
@@ -47,7 +40,7 @@ function Step1({currentUser, newAddress}) {
           <label>Province</label>
           <Input
             type="text"
-            value={newAddress.province}
+            value={address.province}
             className="my-2"
             readOnly
           />
@@ -56,7 +49,7 @@ function Step1({currentUser, newAddress}) {
           <label>County</label>
           <Input
             type="text"
-            value={newAddress.country}
+            value={address.country}
             className="my-2"
             readOnly
           />
@@ -65,7 +58,7 @@ function Step1({currentUser, newAddress}) {
           <label>Address</label>
           <Input
             type="text"
-            value={newAddress.address}
+            value={address.address}
             className="my-2"
             readOnly
           />

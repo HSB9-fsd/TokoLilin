@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getCartAction} from "../action/cart.action";
+import {getCartByUserIdAction} from "../action/cart.action";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -25,14 +25,14 @@ const cartSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCartAction.pending, (state) => {
+      .addCase(getCartByUserIdAction.pending, (state) => {
         state.status = "pending";
       })
-      .addCase(getCartAction.fulfilled, (state, action) => {
+      .addCase(getCartByUserIdAction.fulfilled, (state, action) => {
         state.status = "success";
         state.data = action.payload;
       })
-      .addCase(getCartAction.rejected, (state, action) => {
+      .addCase(getCartByUserIdAction.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });

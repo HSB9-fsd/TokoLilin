@@ -131,6 +131,11 @@
       "productId": 8,
       "quantity": 1,
       "id": 8
+    },
+    {
+      "productId": "5f7a60f3-c6cd-484f-be3d-b7680726f81a",
+      "quantity": 1,
+      "id": 9
     }
   ],
   "checkout_items": [],

@@ -1,24 +1,25 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getUserAction} from "../action/user.action";
+import {getUserByIdAction} from "../action/user.action";
 
 const userSlice = createSlice({
   name: "products",
   initialState: {
     data: [],
+    user: {},
     status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getUserAction.pending, (state) => {
+      .addCase(getUserByIdAction.pending, (state) => {
         state.status = "pending";
       })
-      .addCase(getUserAction.fulfilled, (state, action) => {
+      .addCase(getUserByIdAction.fulfilled, (state, action) => {
         state.status = "success";
-        state.data = action.payload;
+        state.data = action.payload.data;
       })
-      .addCase(getUserAction.rejected, (state, action) => {
+      .addCase(getUserByIdAction.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });

@@ -13,14 +13,42 @@ export const getCartAction = createAsyncThunk("getCart/cart", async () => {
   }
 });
 
+export const getCartByUserIdAction = createAsyncThunk(
+  "getCart/cart",
+  async ({id, token}) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/cart/${id}`, {
+        headers: {
+          access_token: token,
+        },
+      });
+
+      const data = response.data;
+
+      return data;
+    } catch (error) {
+      new Error(error.message);
+    }
+  }
+);
+
 export const postCartAction = createAsyncThunk(
   "postCart/cart",
-  async (id, {dispatch}) => {
+  async ({userId, id, token, quantity}, {dispatch}) => {
     try {
-      const response = await axios.post("http://localhost:3000/basket", {
-        productId: id,
-        quantity: 1,
-      });
+      const response = await axios.post(
+        "http://localhost:8080/cart/",
+        {
+          user_id: userId,
+          product_id: id,
+          quantity: quantity,
+        },
+        {
+          headers: {
+            access_token: token,
+          },
+        }
+      );
 
       const data = response.data;
 
@@ -33,11 +61,16 @@ export const postCartAction = createAsyncThunk(
     }
   }
 );
+
 export const deleteCartAction = createAsyncThunk(
   "deleteCart/cart",
-  async (id, {dispatch}) => {
+  async ({id, token}, {dispatch}) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/basket/${id}`);
+      const response = await axios.delete(`http://localhost:8080/cart/${id}`, {
+        headers: {
+          access_token: token,
+        },
+      });
 
       const data = response.data;
 

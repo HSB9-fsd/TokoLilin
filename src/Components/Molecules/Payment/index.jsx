@@ -1,63 +1,57 @@
 /* eslint-disable react/prop-types */
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Steps} from "antd";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
+import {useNavigate} from "react-router-dom";
 import {Button, Container} from "../../Atom";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {getUserAction} from "../../../store/action/user.action";
-import {getAddressAction} from "../../../store/action/address.action";
+import {useDispatch} from "react-redux";
 import {postShippingAction} from "../../../store/action/shipping.action";
+import useToken from "../../../Hooks/useToken";
+import useAddress from "../../../Hooks/useAddress";
 
-function PaymentProccess({newData, grossAmount, hanldePayment}) {
+function PaymentProccess(props) {
+  const {newData, grossAmount, hanldePayment} = props;
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.data);
-  const token = localStorage.getItem("token");
-  const user_ids = users.map((user) => user.id);
-  const [formData, setFormData] = useState({});
+  const token = useToken();
+  const address = useAddress();
+  const navigate = useNavigate();
+  const productMap = newData.map((item) => item.product_id.id);
+  const [formData, setFormData] = useState({
+    address_id: null,
+    user_id: null,
+    payment: "",
+    products_datas: productMap,
+    quantity: 12,
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(getUserAction(token));
-      await dispatch(getAddressAction(token));
-    };
-
-    fetchData();
-  }, [dispatch, token]);
-
-  const currentUser = useSelector((state) => state.users.data[0]);
-  const newAddress = useSelector((state) =>
-    state.address.data.find((data) => user_ids.includes(data.user_id))
-  );
-
-  useEffect(() => {
-    if (currentUser && newAddress) {
-      const currentUserID = currentUser.id || null;
-      const currentAddressID = newAddress.id || null;
+    if (address && address.id && address.user_id) {
       setFormData({
-        user_id: currentUserID,
-        address_id: currentAddressID,
-        payment: "",
+        ...formData,
+        address_id: address.id,
+        user_id: address.user_id,
       });
     }
-  }, [currentUser, newAddress]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(postShippingAction({formData, token}));
+    dispatch(postShippingAction({formData, token})).then(() => {
+      navigate("/");
+    });
   };
 
   const handleInputChange = (e) => {
     const {name, value} = e.target;
     setFormData((prev) => ({...prev, [name]: value}));
   };
-
   const steps = [
     {
       title: "Personal Biodata",
-      content: <Step1 currentUser={currentUser} newAddress={newAddress} />,
+      content: <Step1 address={address} />,
     },
     {
       title: "Product Details",
@@ -83,13 +77,9 @@ function PaymentProccess({newData, grossAmount, hanldePayment}) {
     title: item.title,
   }));
 
-  if (!currentUser || !newAddress) {
-    return console.log("");
-  }
-
   return (
     <>
-      <section className="fixed z-50 top-0 left-0 right-0 bottom-0 h-full bg-white">
+      <section className="fixed z-50 top-0 left-0 right-0 bottom-0 h-full bg-white overflow-auto">
         <Container className="p-5 md:p-16">
           <Steps current={current} items={items} className="" />
           <div>{steps[current].content}</div>
@@ -129,7 +119,7 @@ function PaymentProccess({newData, grossAmount, hanldePayment}) {
                 <Button
                   variant="outline"
                   onClick={() => prev()}
-                  className="py-1 px-10 ml-3"
+                  className="py-1 px-10 md:ml-3 mt-4"
                 >
                   Previous
                 </Button>

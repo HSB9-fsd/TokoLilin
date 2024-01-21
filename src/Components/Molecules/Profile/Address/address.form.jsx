@@ -1,30 +1,27 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+/* eslint-disable react/prop-types */
 import {Input} from "antd";
 import {Link} from "react-router-dom";
 import {Button} from "../../../Atom";
-import {getUserAction} from "../../../../store/action/user.action";
-import {getAddressAction} from "../../../../store/action/address.action";
 
-function AddressForm() {
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.data);
-  const address = useSelector((state) => state.address.data);
-  const token = localStorage.getItem("token");
-  const user_ids = users.map((user) => user.id);
-  const newAddress = address.find((data) => user_ids.includes(data.user_id));
+function AddressForm({address}) {
+  // const dispatch = useDispatch();
+  // const users = useSelector((state) => state.users.data);
+  // const address = useSelector((state) => state.address.data);
+  // const token = localStorage.getItem("token");
+  // const user_ids = users.map((user) => user.id);
+  // const newAddress = address.find((data) => user_ids.includes(data.user_id));
 
-  useEffect(() => {
-    dispatch(getUserAction(token));
-    dispatch(getAddressAction(token));
-  }, [dispatch, token]);
+  // useEffect(() => {
+  //   dispatch(getUserAction(token));
+  //   dispatch(getAddressAction(token));
+  // }, [dispatch, token]);
 
-  if (!newAddress) {
-    return console.log("");
-  }
+  // if (!newAddress) {
+  //   return console.log("");
+  // }
 
   return (
-    <form className="mb-20">
+    <form className="mb-8">
       <div className="mb-4">
         <label
           htmlFor="city"
@@ -36,7 +33,7 @@ function AddressForm() {
           type="text"
           id="city"
           name="city"
-          value={newAddress.city}
+          value={address.city}
           className="form-input w-full"
           placeholder="Enter your city"
           readOnly
@@ -54,7 +51,7 @@ function AddressForm() {
           type="text"
           id="postal_code"
           name="postal_code"
-          value={newAddress.postal_code}
+          value={address.postal_code}
           className="form-input w-full"
           placeholder="Enter your postal code"
           readOnly
@@ -72,7 +69,7 @@ function AddressForm() {
           type="text"
           id="province"
           name="province"
-          value={newAddress.province}
+          value={address.province}
           className="form-input w-full"
           placeholder="Enter your province"
           readOnly
@@ -90,7 +87,7 @@ function AddressForm() {
           type="text"
           id="country"
           name="country"
-          value={newAddress.country}
+          value={address.country}
           className="form-input w-full"
           placeholder="Enter your country"
           readOnly
@@ -108,7 +105,7 @@ function AddressForm() {
           type="text"
           id="address"
           name="address"
-          value={newAddress.address}
+          value={address.address}
           className="form-input w-full"
           rows="3"
           placeholder="Enter your address"
@@ -116,7 +113,7 @@ function AddressForm() {
         />
       </div>
       <div>
-        <Link to="/address">
+        <Link to={`/address/${address.id}`}>
           <Button variant="warning" className="py-2 px-5">
             Update
           </Button>
