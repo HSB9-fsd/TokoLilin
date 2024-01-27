@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { registerAction } from "../../../store/action/user.action";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import {registerAction} from "../../../store/action/user.action";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,12 @@ const Register = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {name, value} = e.target;
+    setFormData((prev) => ({...prev, [name]: value}));
   };
 
   const handleFileChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
+    setFormData((prev) => ({...prev, [e.target.name]: e.target.files[0]}));
   };
 
   const handleSubmit = (e) => {

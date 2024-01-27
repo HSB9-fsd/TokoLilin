@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { data } from "./db";
-import { Container } from "../Atom";
-import { FaRegUser } from "react-icons/fa6";
-import { SlBasket } from "react-icons/sl";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { CiLogout } from "react-icons/ci";
-import { Link, useNavigate } from "react-router-dom";
+import {useState} from "react";
+import {data} from "./db";
+import {Container} from "../Atom";
+import {FaRegUser} from "react-icons/fa6";
+import {SlBasket} from "react-icons/sl";
+import {GiHamburgerMenu} from "react-icons/gi";
+import {CiLogout} from "react-icons/ci";
+import {Link, useNavigate} from "react-router-dom";
 import Button from "../Atom/Button";
 import useToken from "../../Hooks/useToken";
 
@@ -52,8 +52,8 @@ function NavBar() {
 
         {!token ? (
           <Link to="/login">
-            <Button className="hover:bg-primary p-2 hover:text-white rounded-md mt-4 text-xl">
-              <FaRegUser />
+            <Button className="hover:bg-primary p-2 hover:text-white rounded-md mt-4">
+              Register
             </Button>
           </Link>
         ) : (

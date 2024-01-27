@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import {notification} from "antd";
 
 export const getAddressByUserIdAction = createAsyncThunk(
   "getAddress/address",
@@ -76,7 +77,9 @@ export const updateAddressAction = createAsyncThunk(
       }
 
       const data = response.data;
-      alert("oke");
+      notification.success({
+        message: "Sukses update data",
+      });
       return data;
     } catch (error) {
       console.error(error.message);

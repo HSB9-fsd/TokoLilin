@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import {notification} from "antd";
 
 export const getCartAction = createAsyncThunk("getCart/cart", async () => {
   try {
@@ -52,7 +53,9 @@ export const postCartAction = createAsyncThunk(
 
       const data = response.data;
 
-      alert("oke");
+      notification.success({
+        message: "Sukses menambahkan product ke keranjang",
+      });
 
       dispatch(getCartAction());
       return data;
@@ -74,7 +77,9 @@ export const deleteCartAction = createAsyncThunk(
 
       const data = response.data;
 
-      alert("oke");
+      notification.success({
+        message: "Sukses menghapus data keranjang",
+      });
 
       dispatch(getCartAction());
       return data;
