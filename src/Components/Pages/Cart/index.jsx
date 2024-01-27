@@ -107,7 +107,7 @@ function Cart() {
           {carts <= 0 ? (
             <Empty place="cart item" />
           ) : (
-            carts.map((item) => (
+            carts?.map((item) => (
               <div
                 key={item.id}
                 className="flex flex-wrap justify-center sm:justify-between items-center border p-5 mb-3"

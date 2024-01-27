@@ -4,7 +4,6 @@ import {Steps} from "antd";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
-import {useNavigate} from "react-router-dom";
 import {Button, Container} from "../../Atom";
 import {useDispatch} from "react-redux";
 import {postShippingAction} from "../../../store/action/shipping.action";
@@ -16,15 +15,30 @@ function PaymentProccess(props) {
   const dispatch = useDispatch();
   const token = useToken();
   const address = useAddress();
-  const navigate = useNavigate();
   const productMap = newData.map((item) => item.product_id.id);
+  const quantityMap = newData.map((item) => item.quantity);
+
   const [formData, setFormData] = useState({
     address_id: null,
     user_id: null,
     payment: "",
     products_datas: productMap,
-    quantity: 12,
+    quantity: quantityMap,
   });
+
+  useEffect(() => {
+    const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js";
+    const clientKey = import.meta.env.VITE_APP_PUBLIC_CLIENT;
+    const script = document.createElement("script");
+    script.src = snapScript;
+    script.setAttribute("data-client-key", clientKey);
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   useEffect(() => {
     if (address && address.id && address.user_id) {
@@ -39,9 +53,7 @@ function PaymentProccess(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(postShippingAction({formData, token})).then(() => {
-      navigate("/");
-    });
+    dispatch(postShippingAction({formData, token})).then(() => {});
   };
 
   const handleInputChange = (e) => {

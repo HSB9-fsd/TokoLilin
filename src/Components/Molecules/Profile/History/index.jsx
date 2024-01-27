@@ -10,7 +10,7 @@ function HistoryProfile() {
         {checkout <= 0 ? (
           <Empty place="Shpping Items" />
         ) : (
-          checkout.map((item) => (
+          checkout?.map((item) => (
             <li key={item.id} className="flex gap-2 items-center mb-4">
               <img
                 // src={item.img}

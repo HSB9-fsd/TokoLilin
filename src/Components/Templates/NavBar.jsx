@@ -61,6 +61,20 @@ function NavBar() {
             </a>
           </div>
         )}
+        {/* <div className="flex gap-4 justify-end items-center text-2xl">
+          <a
+            href="/login"
+            className="hover:bg-primary p-2 hover:text-white rounded-md"
+          >
+            <FaRegUser />
+          </a>
+          <a
+            href="/login"
+            className="hover:bg-primary p-2 hover:text-white rounded-md"
+          >
+            <SlBasket />
+          </a>
+        </div> */}
       </Container>
     </nav>
   );

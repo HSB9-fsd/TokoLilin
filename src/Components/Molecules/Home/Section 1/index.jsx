@@ -6,7 +6,7 @@ function FirstSection() {
 
   const hanldeToken = () => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkMmM2NWZkLWIxNzEtNDBhMC04YWNkLWIxNWJiYzVjNjE4OCIsImlhdCI6MTcwNTg0MTAyM30.VlXz7c4OO3WF0kXnV1KO6gT7oAIc_cdbEX_iBR84LfA";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBlNzAyMjQwLTM0ZjctNGNmNy04MmZkLWI5MWQ5OGRhMTFmOCIsImlhdCI6MTcwNjI3NjY0Nn0.24PzIFeWqk784us3eKcxFmnFen4f5h0OB3E_0sCU3HI";
     localStorage.setItem("token", token);
   };
 

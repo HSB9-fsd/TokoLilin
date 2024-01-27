@@ -1,6 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import {notification} from "antd";
 
 export const getShippingAction = createAsyncThunk(
   "postUser/user",
@@ -51,10 +50,7 @@ export const postShippingAction = createAsyncThunk(
 
       const data = response.data;
 
-      notification.success({
-        message: "Success",
-        description: "Shipping data has been successfully added.",
-      });
+      window.snap.pay(data.tokens);
 
       return data;
     } catch (error) {

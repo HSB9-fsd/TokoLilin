@@ -1,14 +1,11 @@
 import {Container} from "../../Atom";
 import Template from "../../Templates";
-import AddressForm from "../../Molecules/Profile/Address/address.form";
 import BiodataProfile from "../../Molecules/Profile/Biodata";
 import {Collapse} from "antd";
 import HistoryProfile from "../../Molecules/Profile/History";
-import useAddress from "../../../Hooks/useAddress";
+import UpdateAddressPage from "../Address";
 
 function ProfilePage() {
-  const address = useAddress();
-
   const items = [
     {
       key: "1",
@@ -18,7 +15,7 @@ function ProfilePage() {
     {
       key: "2",
       label: "Address",
-      children: <AddressForm address={address} />,
+      children: <UpdateAddressPage />,
     },
     {
       key: "3",
