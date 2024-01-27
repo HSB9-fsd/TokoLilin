@@ -1,16 +1,24 @@
-import {useState} from "react";
-import {data} from "./db";
-import {Container} from "../Atom";
-import {FaRegUser} from "react-icons/fa6";
-import {SlBasket} from "react-icons/sl";
-import {GiHamburgerMenu} from "react-icons/gi";
-import {Link} from "react-router-dom";
+import { useState } from "react";
+import { data } from "./db";
+import { Container } from "../Atom";
+import { FaRegUser } from "react-icons/fa6";
+import { SlBasket } from "react-icons/sl";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CiLogout } from "react-icons/ci";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../Atom/Button";
 import useToken from "../../Hooks/useToken";
 
 function NavBar() {
   const [isVisible, setIsvisible] = useState(false);
   const token = useToken();
   const currentPath = window.location.pathname;
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear({});
+    navigate("/login");
+  };
 
   const toggleSidebar = () => {
     setIsvisible(!isVisible);
@@ -43,8 +51,10 @@ function NavBar() {
         </ul>
 
         {!token ? (
-          <Link to="/register">
-            <button className="rounded-md mt-4">Register</button>
+          <Link to="/login">
+            <Button className="hover:bg-primary p-2 hover:text-white rounded-md mt-4 text-xl">
+              <FaRegUser />
+            </Button>
           </Link>
         ) : (
           <div className="flex gap-4 justify-end items-center text-2xl">
@@ -59,6 +69,12 @@ function NavBar() {
             >
               <SlBasket />
             </a>
+            <Button
+              onClick={handleLogout}
+              className="hover:bg-primary p-2 hover:text-white rounded-md"
+            >
+              <CiLogout />
+            </Button>
           </div>
         )}
         {/* <div className="flex gap-4 justify-end items-center text-2xl">

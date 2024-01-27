@@ -1,20 +1,14 @@
-import {Button, Parag, Typog, Container} from "../../../Atom";
-import {useProduct} from "../../../../Hooks/useProduct";
+import { Button, Parag, Typog, Container } from "../../../Atom";
+import { useProduct } from "../../../../Hooks/useProduct";
 
 function FirstSection() {
   const products = useProduct();
-
-  const hanldeToken = () => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBlNzAyMjQwLTM0ZjctNGNmNy04MmZkLWI5MWQ5OGRhMTFmOCIsImlhdCI6MTcwNjI3NjY0Nn0.24PzIFeWqk784us3eKcxFmnFen4f5h0OB3E_0sCU3HI";
-    localStorage.setItem("token", token);
-  };
 
   return (
     <>
       <div
         className="bg-cover bg-no-repeat"
-        style={{backgroundImage: "url(../img/bg-image.png)"}}
+        style={{ backgroundImage: "url(../img/bg-image.png)" }}
       >
         <Container className="h-[800px] flex-center">
           <div className="w-[730px] bg-white/70 py-16 flex flex-col items-center text-center backdrop-blur-lg rounded-lg">
@@ -25,11 +19,7 @@ function FirstSection() {
               your pleasure moments
             </p>
             <div>
-              <Button
-                onClick={hanldeToken}
-                variant="primary"
-                className="py-2 px-11 font-bold"
-              >
+              <Button variant="primary" className="py-2 px-11 font-bold">
                 Discover our collection
               </Button>
             </div>
